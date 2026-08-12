@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CINEMATIC TWILIGHT DARK THEME */
+
+/* Base Styling */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: rgb(15, 23, 42); /* slate-950 */
+    color: rgb(226, 232, 240); /* slate-200 */
+  }
+
+  body {
+    background-color: rgb(15, 23, 42);
+    color: rgb(226, 232, 240);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Remove default focus outlines */
+  :focus-visible {
+    outline: 2px solid #ec4899;
+    outline-offset: 2px;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  /* Glass Morphism Cards */
+  .card-glass-dark {
+    @apply bg-slate-900/40 backdrop-blur-md border border-slate-700/40 rounded-xl;
+  }
+
+  .card-glass-dark-elevated {
+    @apply bg-slate-900/60 backdrop-blur-lg border border-slate-700/60 rounded-xl;
+  }
+
+  /* Gradient Text */
+  .gradient-text-twilight {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-magenta-300 via-purple-300 to-cyan-400;
+  }
+
+  .gradient-text-magenta-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-magenta-400 to-cyan-400;
+  }
+
+  /* Buttons */
+  .btn-primary-twilight {
+    @apply px-8 py-3 bg-gradient-to-r from-magenta-500 to-magenta-600 text-white rounded-lg font-light tracking-wide hover:shadow-xl hover:shadow-magenta-500/40 hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .btn-secondary-twilight {
+    @apply px-8 py-3 bg-slate-900/60 backdrop-blur-sm border border-cyan-500/40 text-cyan-300 rounded-lg font-light tracking-wide hover:border-cyan-400/60 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  /* Bioluminescent Glow Effects */
+  .glow-magenta {
+    @apply shadow-glow-magenta;
+  }
+
+  .glow-cyan {
+    @apply shadow-glow-cyan;
+  }
+
+  .glow-purple {
+    @apply shadow-glow-purple;
+  }
+
+  /* Hover Glow States */
+  .hover-glow-magenta:hover {
+    @apply shadow-glow-magenta transition-shadow duration-300;
+  }
+
+  .hover-glow-cyan:hover {
+    @apply shadow-glow-cyan transition-shadow duration-300;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(236, 72, 153, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(236, 72, 153, 0.5);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-color: rgba(236, 72, 153, 0.3) transparent;
+    scrollbar-width: thin;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Text truncation */
+  .line-clamp-1 {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  /* Backdrop blur enhancement */
+  .backdrop-blur-extreme {
+    @apply backdrop-blur-xl;
+  }
+}
+
+/* Animations */
+@keyframes bioluminescence-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.2));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.4));
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bioluminescence {
+  animation: bioluminescence-pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glass morphism enhancement for dark mode */
+.glassmorphism-dark {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(236, 72, 153, 0.3);
+  color: rgb(226, 232, 240);
+}
+
+::-moz-selection {
+  background-color: rgba(236, 72, 153, 0.3);
+  color: rgb(226, 232, 240);
+}
+
+/* Link styling */
+a {
+  color: #f472b6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #06b6d4;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+}
